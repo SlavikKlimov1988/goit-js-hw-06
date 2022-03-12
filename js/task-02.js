@@ -6,10 +6,14 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
-const potatoes = document.createElement('li');
-potatoes.textContent =`${ingredients[0]}`;
-potatoes.classList.add(`${ingredients[0]}`);
-console.log(potatoes)
+
+
+
 const ingredientsList = document.querySelector('#ingredients');
-console.log(ingredientsList)
-ingredientsList.appendChild(potatoes)
+
+for (let i = 0; i < ingredients.length; i++){
+  const potatoes = document.createElement('li');
+  potatoes.textContent =`${ingredients[i]}`;
+  potatoes.classList.add(`${ingredients[i]}`);
+  ingredientsList.appendChild(potatoes)
+}
