@@ -1,23 +1,22 @@
-const form = document.querySelector('.login-form');
-
-form.addEventListener('submit', onFormSubmit)
+document.querySelector('.login-form')
+.addEventListener('submit', checkForm);
 const data = {}
-function onFormSubmit(event) {
+function checkForm(ev) {
+   const event = document.getElementsByClassName('.login-form')
+   ev.preventDefult();
    
-   event.preventDefult();
-
-   const formData = new FormData(event.currentTarget);
-   formData.forEach((value, name) => {
-    
-      if (value  === '' || name === '') {
-         alert('все поля должны быть заполнены')
-      }
-      else {
-         data.value = value
-         data.name = name
-      }
-      return data
+   const dataEmail = event.email.value;
+   const dataPaswword = event.password.value;
+   if (dataEmail === ''||dataPaswword === '') {
+      alert('eror can read on property')
+   } else {
+      data.email = dataEmail;
+      data.paswword = dataPaswword;
    }
-   )
+   
+   
+   return data
+
 }
-// console.log(data)
+   
+
