@@ -13,25 +13,18 @@ const images = [
   },
 ];
 const gallery = document.querySelector('.gallery');
-// const element = [];
 
-// for (let i = 0; i < images.length; i++){
-//   const option = images[i];
-//   const imeg = document.createElement("img");
-//   const list = document.createElement('li');
-//   imeg.src = option.url;
-//   imeg.alt = option.alt;
-//   list.appendChild(imeg)
-//   element.push(list)
-// }
-// gallery.append(...element)
-const element = images.map(options =>
-{
-  const imeg = document.createElement("img");
-  const list = document.createElement('li');
-  imeg.src = options.url;
-  imeg.alt = options.alt;
-  list.appendChild(imeg)
-  return list
-})
-gallery.append(...element)
+const makeImgOptions = (options) => {
+  return options.map(option =>
+    {
+      const imeg = document.createElement("img");
+      const list = document.createElement('li');
+      imeg.src = option.url;
+      imeg.alt = option.alt;
+      list.appendChild(imeg)
+      return list
+    })
+  
+}
+const elements = makeImgOptions(images);
+gallery.append(...elements);

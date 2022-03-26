@@ -11,9 +11,17 @@ const ingredients = [
 
 const ingredientsList = document.querySelector('#ingredients');
 
-for (let i = 0; i < ingredients.length; i++){
-  const potatoes = document.createElement('li');
-  potatoes.textContent =`${ingredients[i]}`;
-  potatoes.classList.add(`${ingredients[i]}`);
-  ingredientsList.appendChild(potatoes)
-}
+
+
+
+const ingredientsOption = (option) => {
+  return option.map(ingredient => {
+    const potatoes = document.createElement('li');
+    potatoes.textContent = `${ingredient}`;
+    potatoes.classList.add(`${ingredient}`);
+    return potatoes
+  })
+};
+
+const elements = ingredientsOption(ingredients)
+ingredientsList.appendChild(...elements)
