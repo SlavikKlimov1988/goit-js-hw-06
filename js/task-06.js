@@ -3,12 +3,14 @@ inputVal.addEventListener('blur',eventOnInput);
 
 function eventOnInput(event) {
    const res = event.currentTarget.dataset.length;
-   console.log(res)
    const curent = event.currentTarget.value;
-   console.log(curent.length)
    if (res >= curent.length) {
+      //debugger
       inputVal.classList.add('valid')
+      inputVal.classList.remove('invalid')
    } else {
+      //debugger
+      inputVal.classList.remove('valid')
       inputVal.classList.add('invalid')
    }
 }

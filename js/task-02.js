@@ -24,4 +24,4 @@ const ingredientsOption = (option) => {
 };
 
 const elements = ingredientsOption(ingredients)
-ingredientsList.appendChild(...elements)
+ingredientsList.append(...elements)

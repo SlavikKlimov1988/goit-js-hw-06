@@ -14,17 +14,14 @@ const images = [
 ];
 const gallery = document.querySelector('.gallery');
 
-const makeImgOptions = (options) => {
-  return options.map(option =>
-    {
-      const imeg = document.createElement("img");
-      const list = document.createElement('li');
-      imeg.src = option.url;
-      imeg.alt = option.alt;
-      list.appendChild(imeg)
-      return list
-    })
+const makeGalary = elem => {
+  return `
   
+    <li><img src="${elem.url}" alt="${elem.alt}"></li>
+  
+  `
 }
-const elements = makeImgOptions(images);
-gallery.append(...elements);
+
+const makeGaleryImg = images.map(makeGalary).join('');
+console.log(makeGaleryImg)
+gallery.insertAdjacentHTML('beforebegin', makeGaleryImg)
